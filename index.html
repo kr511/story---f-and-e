@@ -26,6 +26,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-x: hidden;
         }
 
         /* Hero Cover Section */
@@ -57,7 +58,7 @@
         .hero-title {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 6rem;
+            font-size: clamp(2.5rem, 8vw, 6rem);
             color: #fdfbf7;
             margin: 0 0 10px 0;
             font-weight: 500;
@@ -138,6 +139,46 @@
             box-shadow: 0 -20px 40px rgba(0,0,0,0.1);
         }
 
+        /* Table of Contents */
+        .toc-container {
+            text-align: center;
+            margin: 0 auto 80px auto;
+            padding: 30px;
+            background: #faf7f2;
+            border-radius: 8px;
+            max-width: 500px;
+            border-left: 3px solid var(--accent-color);
+        }
+        .toc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .toc-item {
+            margin-bottom: 5px;
+        }
+        .toc-link {
+            display: inline-block;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 10px 15px; /* Touch target min 44px */
+            transition: color 0.3s ease;
+        }
+        .toc-link:hover {
+            color: var(--text-color);
+        }
+
         h2.chapter-title {
             font-family: 'Playfair Display', serif;
             font-size: 2.2rem;
@@ -184,8 +225,14 @@
 
         p {
             margin-bottom: 28px;
-            text-align: justify;
+            text-align: left; /* Mobile default */
             hyphens: auto;
+        }
+
+        @media (min-width: 600px) {
+            p {
+                text-align: justify;
+            }
         }
 
         .italic-thought {
@@ -200,12 +247,30 @@
             max-width: 560px;
         }
 
+        /* Elegant Divider */
         .asterisk-divider {
-            text-align: center;
-            color: var(--accent-color);
-            font-size: 1.8rem;
-            letter-spacing: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin: 80px 0;
+            color: var(--accent-color);
+        }
+        
+        .asterisk-divider::before,
+        .asterisk-divider::after {
+            content: '';
+            height: 1px;
+            background-color: var(--accent-color);
+            flex-grow: 1;
+            max-width: 80px;
+            opacity: 0.4;
+        }
+        
+        .asterisk-divider::before { margin-right: 15px; }
+        .asterisk-divider::after { margin-left: 15px; }
+        
+        .asterisk-divider span {
+            font-size: 1.3rem;
         }
 
         .final-note {
@@ -232,12 +297,26 @@
             margin-top: 10px;
         }
 
+        /* Media Queries integrated */
         @media (max-width: 768px) {
-            .hero-title { font-size: 3.5rem; }
-            .hero-subtitle { font-size: 1rem; }
-            body { font-size: 16px; }
             .book-container { padding: 40px 25px; }
-            h2.chapter-title { font-size: 1.9rem; }
+        }
+
+        @media (max-width: 600px) {
+            .book-container { padding: 30px 18px; }
+            h2.chapter-title { 
+                font-size: 1.4rem; 
+                margin-top: 60px;
+                margin-bottom: 30px;
+            }
+            .hero-subtitle { font-size: 1rem; letter-spacing: 3px; }
+            .hero-poetic { font-size: 1.05rem; }
+            .italic-thought { 
+                max-width: 100%; 
+                font-size: 1.1rem; 
+                padding: 0;
+            }
+            .toc-container { padding: 20px 15px; }
         }
     </style>
 </head>
@@ -256,9 +335,22 @@
 
     <!-- Rest of the Book -->
     <div class="book-container">
+
+        <!-- Inhaltsverzeichnis -->
+        <div class="toc-container">
+            <h2 class="toc-title">Inhalt</h2>
+            <ul class="toc-list">
+                <li class="toc-item"><a href="#vorwort" class="toc-link">Bevor die Geschichte beginnt</a></li>
+                <li class="toc-item"><a href="#kapitel-1" class="toc-link">Kapitel 1</a></li>
+                <li class="toc-item"><a href="#kapitel-2" class="toc-link">Kapitel 2</a></li>
+                <li class="toc-item"><a href="#kapitel-3" class="toc-link">Kapitel 3</a></li>
+                <li class="toc-item"><a href="#kapitel-4" class="toc-link">Kapitel 4</a></li>
+                <li class="toc-item"><a href="#brief" class="toc-link">Ein Brief – nur für dich</a></li>
+            </ul>
+        </div>
         
         <!-- Vorwort -->
-        <div class="preface">
+        <div class="preface" id="vorwort">
             <h2 class="preface-title">Bevor die Geschichte beginnt</h2>
             <p>Ich war immer ein stiller Junge. Einer, der lieber beobachtete, als zu reden. Einer, der früh – vielleicht viel zu früh – verstand, wie die Welt wirklich funktioniert. Während andere Jungs in meinem Alter wahllos verliebten und wieder vergaßen, saß ich daneben und dachte: <em>Nein. Nicht so. Nicht mit irgendjemand.</em></p>
             <p>Ich wollte keine Freundin. Ich wollte von Anfang an eine Frau – im Charakter, in der Tiefe, in der Art, wie sie die Welt betrachtet. Ich hatte eine bis ins Kleinste ausdefinierte innere Messlatte, die kaum jemand kannte, weil ich sie nie laut aussprach. Ich sah viele Menschen. Viele Mädchen. Und ich dachte jedes Mal: <em>Nein. Du nicht. Ich nicht. Nicht jetzt.</em></p>
@@ -278,7 +370,7 @@
             <span class="italic-thought">Wer hätte geglaubt, dass ausgerechnet eine Nachholstunde Sozialkunde das Scharnier war, an dem sich mein ganzes Leben drehte?</span>
         </div>
 
-        <div class="asterisk-divider">***</div>
+        <div class="asterisk-divider"><span>✦</span></div>
 
         <!-- Kapitel 2 -->
         <div class="chapter" id="kapitel-2">
@@ -290,7 +382,7 @@
             <span class="italic-thought">Ich hatte jahrelang alle auf Abstand gehalten. Doch gegen sie konnte ich nicht ankämpfen. Ihre bloße Existenz neben mir machte alle meine Mauern lächerlich.</span>
         </div>
 
-        <div class="asterisk-divider">***</div>
+        <div class="asterisk-divider"><span>✦</span></div>
 
         <!-- Kapitel 3 -->
         <div class="chapter" id="kapitel-3">
@@ -301,7 +393,7 @@
             <span class="italic-thought">Kälte ist relativ. Sie hört dann auf zu existieren, wenn man für jemanden brennt.</span>
         </div>
 
-        <div class="asterisk-divider">***</div>
+        <div class="asterisk-divider"><span>✦</span></div>
 
         <!-- Kapitel 4 -->
         <div class="chapter" id="kapitel-4">
@@ -319,7 +411,7 @@
             <p>Sie ist der Grund, warum das Warten sich gelohnt hat.</p>
         </div>
 
-        <div class="asterisk-divider">***</div>
+        <div class="asterisk-divider"><span>✦</span></div>
 
         <!-- Liebesbrief -->
         <div class="chapter" id="brief" style="margin-top: 20px;">
