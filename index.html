@@ -143,19 +143,29 @@
         .toc-container {
             text-align: center;
             margin: 0 auto 80px auto;
-            padding: 30px;
+            padding: 40px 30px;
             background: #faf7f2;
             border-radius: 8px;
-            max-width: 500px;
-            border-left: 3px solid var(--accent-color);
+            max-width: 520px;
+            border-top: 2px solid var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
         }
         .toc-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
             color: var(--text-color);
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 8px;
             font-style: italic;
+        }
+        .toc-subtitle {
+            font-family: 'Lora', serif;
+            font-size: 0.8rem;
+            color: #aaa;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            display: block;
         }
         .toc-list {
             list-style: none;
@@ -163,20 +173,32 @@
             margin: 0;
         }
         .toc-item {
-            margin-bottom: 5px;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .toc-link {
-            display: inline-block;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--accent-color);
             text-decoration: none;
-            padding: 10px 15px; /* Touch target min 44px */
+            padding: 10px 15px;
             transition: color 0.3s ease;
+            text-align: center;
         }
         .toc-link:hover {
             color: var(--text-color);
+        }
+        .toc-num {
+            font-size: 0.75rem;
+            color: #ccc;
+            font-style: normal;
+            min-width: 16px;
         }
 
         h2.chapter-title {
@@ -318,9 +340,23 @@
             }
             .toc-container { padding: 20px 15px; }
         }
+
+        /* Progress Bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-color), #e8c4a0);
+            z-index: 999;
+            transition: width 0.1s linear;
+        }
     </style>
 </head>
 <body>
+
+    <div id="progress-bar"></div>
 
     <!-- Fullscreen Hero Cover -->
     <div class="hero">
@@ -339,13 +375,14 @@
         <!-- Inhaltsverzeichnis -->
         <div class="toc-container">
             <h2 class="toc-title">Inhalt</h2>
+            <span class="toc-subtitle">Band 1</span>
             <ul class="toc-list">
-                <li class="toc-item"><a href="#vorwort" class="toc-link">Bevor die Geschichte beginnt</a></li>
-                <li class="toc-item"><a href="#kapitel-1" class="toc-link">Kapitel 1</a></li>
-                <li class="toc-item"><a href="#kapitel-2" class="toc-link">Kapitel 2</a></li>
-                <li class="toc-item"><a href="#kapitel-3" class="toc-link">Kapitel 3</a></li>
-                <li class="toc-item"><a href="#kapitel-4" class="toc-link">Kapitel 4</a></li>
-                <li class="toc-item"><a href="#brief" class="toc-link">Ein Brief – nur für dich</a></li>
+                <li class="toc-item"><a href="#vorwort" class="toc-link"><span class="toc-num">—</span>Bevor die Geschichte beginnt</a></li>
+                <li class="toc-item"><a href="#kapitel-1" class="toc-link"><span class="toc-num">I.</span>Der Moment, in dem die Mauern zu bröckeln begannen</a></li>
+                <li class="toc-item"><a href="#kapitel-2" class="toc-link"><span class="toc-num">II.</span>Eine Fahrradfahrt im Dunkeln und die Pferde</a></li>
+                <li class="toc-item"><a href="#kapitel-3" class="toc-link"><span class="toc-num">III.</span>Zwanzigtausend Schritte und ein Herz in Flammen</a></li>
+                <li class="toc-item"><a href="#kapitel-4" class="toc-link"><span class="toc-num">IV.</span>Der Abend, an dem ich mein Herz verschenkte</a></li>
+                <li class="toc-item"><a href="#brief" class="toc-link"><span class="toc-num">—</span>Ein Brief – nur für dich</a></li>
             </ul>
         </div>
         
@@ -452,5 +489,13 @@
 
 
     </div>
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            document.getElementById('progress-bar').style.width = pct + '%';
+        });
+    </script>
 </body>
 </html>
