@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elias & Felice - Unsere Geschichte</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap');
+
+        :root {
+            --bg-color: #fdfbf7;
+            --text-color: #2c2825;
+            --accent-color: #c9a68a;
+            --secondary-bg: #fff;
+            --book-width: 800px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Lora', serif;
+            line-height: 1.9;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .book-container {
+            max-width: var(--book-width);
+            width: 100%;
+            padding: 60px 40px;
+            box-sizing: border-box;
+            background-color: var(--secondary-bg);
+            min-height: 100vh;
+            box-shadow: 0 0 40px rgba(0,0,0,0.03);
+            margin: 0 auto;
+        }
+
+        .cover {
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+            margin-bottom: 80px;
+            background: linear-gradient(180deg, rgba(253,251,247,0) 0%, rgba(201,166,138,0.08) 100%);
+            border-radius: 8px 8px 0 0;
+        }
+
+        .cover h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .cover .subtitle {
+            font-size: 1.15rem;
+            color: var(--accent-color);
+            font-style: italic;
+            margin-bottom: 50px;
+            max-width: 500px;
+            line-height: 1.7;
+        }
+
+        .cover .authors {
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #999;
+        }
+
+        h2.chapter-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            color: var(--text-color);
+            position: relative;
+        }
+
+        h2.chapter-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-color);
+            margin: 25px auto 0;
+        }
+
+        h2.preface-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 40px;
+            color: #888;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .preface {
+            border-left: 3px solid var(--accent-color);
+            padding: 10px 30px 10px 35px;
+            margin-bottom: 80px;
+            background: #faf7f2;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .preface p {
+            color: #555;
+            font-size: 1.05rem;
+            margin-bottom: 18px;
+        }
+
+        p {
+            margin-bottom: 28px;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .italic-thought {
+            font-style: italic;
+            color: #555;
+            display: block;
+            text-align: center;
+            margin: 40px auto;
+            font-size: 1.25rem;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.7;
+            max-width: 560px;
+        }
+
+        .asterisk-divider {
+            text-align: center;
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            letter-spacing: 15px;
+            margin: 80px 0;
+        }
+
+        .final-note {
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 60px;
+            font-family: 'Playfair Display', serif;
+            border-top: 1px solid #f0ebe3;
+            padding-top: 60px;
+        }
+
+        .final-note .end-band {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .final-note .band-2 {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--accent-color);
+            margin-top: 10px;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .cover h1 { font-size: 3rem; }
+            body { font-size: 16px; }
+            .book-container { padding: 40px 25px; }
+            h2.chapter-title { font-size: 1.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="book-container fade-in">
+
+        <!-- Cover -->
+        <div class="cover">
+            <h1>Freitags nach<br>der Sechsten</h1>
+            <div class="subtitle">Für das erste Mädchen, das ich wirklich sehen ließ, wer ich bin – und das Einzige, das ich jemals sehen lassen wollte.</div>
+            <div class="authors">Die Geschichte von Elias & Felice &mdash; Band 1</div>
+        </div>
+
+        <!-- Vorwort -->
+        <div class="preface">
+            <h2 class="preface-title">Bevor die Geschichte beginnt</h2>
+            <p>Ich war immer ein stiller Junge. Einer, der lieber beobachtete, als zu reden. Einer, der früh – vielleicht viel zu früh – verstand, wie die Welt wirklich funktioniert. Während andere Jungs in meinem Alter wahllos verliebten und wieder vergaßen, saß ich daneben und dachte: <em>Nein. Nicht so. Nicht mit irgendjemand.</em></p>
+            <p>Ich wollte keine Freundin. Ich wollte von Anfang an eine Frau – im Charakter, in der Tiefe, in der Art, wie sie die Welt betrachtet. Ich hatte eine bis ins Kleinste ausdefinierte innere Messlatte, die kaum jemand kannte, weil ich sie nie laut aussprach. Ich sah viele Menschen. Viele Mädchen. Und ich dachte jedes Mal: <em>Nein. Du nicht. Ich nicht. Nicht jetzt.</em></p>
+            <p>Dann kam Felice.</p>
+            <p>Und alle meine stummen, über Jahre gewachsenen Mauern haben sofort angefangen zu zittern. Weil ich sofort sah, dass sie etwas anderes war. Weil ich sofort spürte, dass sie <em>die</em> war, für die ich all die Jahre gewartet hatte. Ich ließ sie ran. Ich ließ <em>nur sie</em> ran. Nicht weil ich nicht anders konnte – sondern weil sie alles war, was ich mir jemals erlaubt hatte zu wünschen.</p>
+            <p>Was folgt, ist die Geschichte davon, wie ich mein bloßes Herz aus seinem Versteck holte und ihr in die Hände legte.</p>
+        </div>
+
+        <!-- Kapitel 1 -->
+        <div class="chapter" id="kapitel-1">
+            <h2 class="chapter-title">Kapitel 1: Der Moment, in dem die Mauern zu bröckeln begannen</h2>
+            <p>Es war ein Freitag wie jeder andere. Die sechste Stunde – Sozialkunde, eine Nachholstunde, in der wir etwas bastelten – zog sich träge dahin. Ich saß dort, versunken in meine stille Welt, die Gedanken weit weg. Dann gab es diesen Moment. Felice sah mich an. Nur das. Sie sah mich an und fragte völlig beiläufig, ob ich mit ihr auf den Bus warten könne.</p>
+            <p>Mein Herz schlug plötzlich lauter. Ich sagte fast reflexartig: <em>"Ja, klar."</em> Äußerlich ruhig, innerlich aufgewühlt. Denn sie war in der 8. Klasse schon mein Ein und Alles. Seit Wochen hatte ich jeden Raum, den sie betrat, mit anderen Augen betrachtet. Ich liege nicht, wenn ich sage, dass ich in der ganzen Schule nur eine einzige Person wirklich sehen wollte – sie. Die ganze Zeit war ich auf sie gerichtet, still und heimlich, ohne dass sie es ahnte. Und jetzt bat sie mich, einfach bei ihr zu bleiben.</p>
+            <p>Wir gingen gemeinsam hinunter zum Markt und setzten uns an den kleinen Brunnen. Was als simples Warten begann, wurde in wenigen Minuten zu einem der tiefgründigsten Gespräche meines bisherigen Lebens. Wir redeten über ihre Familie, über Narben und Verletzungen aus der Vergangenheit, über Beziehungen, die schmerzhaft falsch liefen. Sie öffnete sich mir gegenüber mit einer Ehrlichkeit, die mich regelrecht erschlug. Und ich – ich, der Junge, der sein echtes Inneres vor dieser Welt immer sorgsam verborgen hielt – hörte ihr nicht nur zu. Ich <em>fühlte</em> sie. Mit jedem ihrer Worte kam ich ihr näher, und mit jedem Satz wusste ich tiefer, dass mein Urteil richtig war. Sie war besonders. Sie war anders. Sie war die Frau, die ich nie laut, aber immer innerlich gesucht hatte.</p>
+            <p>Ich war an diesem Tag so verletzlich schüchtern wie noch nie zuvor. Ihre Nettigkeit, ihre Klugheit, diese unfassbare Tiefe in ihren Augen – sie machten mich sprachlos. Für mich war sie in diesem Nachmittag an einem Brunnen in Zörbig einfach vollkommen. Das ist kein pathetisches Wort. Es ist die reine Wahrheit.</p>
+            <p>Nach diesem Nachmittag ließen wir nicht mehr locker. Wir fingen an zu schreiben. Und schon in den ersten Tagen zeigte sie, was für ein Herz sie hatte: Sie erstellte ganz allein Lernkarten für meinen Bruder Collin und gab sie mir. Eine kleine Geste. Aber ich habe sie nie vergessen, weil kleine Gesten bei den richtigen Menschen die lautesten Aussagen sind.</p>
+            <span class="italic-thought">Wer hätte geglaubt, dass ausgerechnet eine Nachholstunde Sozialkunde das Scharnier war, an dem sich mein ganzes Leben drehte?</span>
+        </div>
+
+        <div class="asterisk-divider">***</div>
+
+        <!-- Kapitel 2 -->
+        <div class="chapter" id="kapitel-2">
+            <h2 class="chapter-title">Kapitel 2: Eine Fahrradfahrt im Dunkeln und die Pferde</h2>
+            <p>Aus dem gelegentlichen Schreiben wurde eine tiefe, tägliche Notwendigkeit. Wir hielten uns bis Mitternacht, manchmal darüber hinaus, an unseren Handys fest. Wir starben geradezu vor Neugierde aneinander. Wir sprachen über Theorien im Weltall, über Fakten des menschlichen Körpers, über Dinge, die andere Gleichaltrige vermutlich nicht mal interessierten. Und hinter jedem Wort, das ich schrieb, steckte das gleiche, unausgesprochene Geständnis: <em>Ich will bei dir sein. Immer. Solange du mich lässt.</em></p>
+            <p>Dann kam dieser Tag. Sie schrieb mir, dass ihre Eltern – die ich bis dahin noch nie im Leben gesehen hatte – sie nach draußen geschickt hatten. Ich las den Text. Und ohne auch nur eine Millisekunde zu zögern, stand ich auf, schnappte mir mein Fahrrad und fuhr los. Von Zörbig nach Radegast, durch die Kälte, mit dem einzigen Gedanken: <em>Wenn sie draußen ist, bin ich draußen.</em> Ich hatte keine besondere Ausrede, keinen triftigen Grund. Ich hatte sie. Und das reichte mir vollkommen.</p>
+            <p>Als ich ankam und sie fand, stand sie neben Pferden und hörte Musik. Allein in ihrer eigenen Welt, völlig in sich gekehrt. So ruhig. So sie selbst. Ich hatte ihr als kleine, unbeholfene Aufmerksamkeit eine Tafel Schokolade mitgebracht. Sie schaute mich an, schüttelte den Kopf und lehnte ab – stur, mit einem kleinen Lächeln auf den Lippen. Ich versuchte sie zu überreden. Sie blieb dabei. Heute weiß ich, dass es diese sture, eigensinnige Art von ihr war, die mich ausgerechnet in diesem Moment noch ein bisschen tiefer in sie verliebte.</p>
+            <p>Wir blieben dort, redeten stundenlang, bis die Dunkelheit sich tief über alles gelegt hatte. Zwei oder drei Wochen später kamen wir wieder zusammen – diesmal spielten wir Fußball, lieferten uns schallend lachende Duelle beim Basketball. Und als die Nacht hereinbrach und wir beide schweißbedeigt auf einer kleinen Erhöhung standen, geschah es. Ich öffnete meine Arme. Sie kam. Wir umarmten uns. Eine einfache, stille Umarmung. Aber sie war lauter als alles, was ich je gesagt hatte. In diesem Moment ließ ich sie hinter jede Mauer, die ich je um mich herum gebaut hatte.</p>
+            <span class="italic-thought">Ich hatte jahrelang alle auf Abstand gehalten. Doch gegen sie konnte ich nicht ankämpfen. Ihre bloße Existenz neben mir machte alle meine Mauern lächerlich.</span>
+        </div>
+
+        <div class="asterisk-divider">***</div>
+
+        <!-- Kapitel 3 -->
+        <div class="chapter" id="kapitel-3">
+            <h2 class="chapter-title">Kapitel 3: Zwanzigtausend Schritte und ein Herz in Flammen</h2>
+            <p>Der Winter legte sich wie eine schwere, dunkle Decke über alles. Der Weihnachtsmarkt in Zörbig war unser nächstes Abenteuer. Wir kamen an, sahen uns um – und stellten nach wenigen Minuten ernüchtert fest, dass er winzig war. Fertig. Schon vorbei. Ein anderes Mädchen hätte vielleicht enttäuscht geschaut. Felice nicht. Wir lachten darüber und machten es zu unserem Abend. Ich kaufte ihr etwas Warmes zu essen und zu trinken, und dann liefen wir einfach los.</p>
+            <p>Wir liefen durch die Nacht, durch die Kälte, durch leere Straßen. Wir sprachen ohne Unterbrechung, unsere Atemwolken hingen in der Winterluft. 20.000 Schritte sammelten wir an jenem Abend, und es hätten auch 40.000 sein können. Ich hätte nicht aufgehört. Auf der Metabank legten wir eine Pause ein, die sich zu Stunden ausgedehnten Gesprächen auflöste. Als die Uhr längst die 23 überschritten hatte, brachte ich sie nach Radegast nach Hause. Einen langen, stillen Weg durch die Dunkelheit. Es war der kälteste Abend des ganzen Winters. Ich habe von der Kälte nichts gespürt. Nicht eine Sekunde lang. Weil sie an meiner Seite war und mir allein das vollständig gereicht hat.</p>
+            <p>In den Wochen danach wurde der Brunnen des Leipziger Teiches nach ihrem Training zu unserem stillen Ritual. Das leise Plätschern in der Dunkelheit. Unser beider Atem in der kalten Luft. Und das unbeschreibliche, sanfte Gefühl, dass ich diesen einen Menschen für mich gefunden hatte – jenen, auf den ich all die Jahre ohne Kompromisse gewartet hatte.</p>
+            <span class="italic-thought">Kälte ist relativ. Sie hört dann auf zu existieren, wenn man für jemanden brennt.</span>
+        </div>
+
+        <div class="asterisk-divider">***</div>
+
+        <!-- Kapitel 4 -->
+        <div class="chapter" id="kapitel-4">
+            <h2 class="chapter-title">Kapitel 4: Der Abend, an dem ich mein Herz verschenkte</h2>
+            <p>Ich war der stille Junge, der früh zu viel verstand. Der Junge, der jahrelang die Menschen um sich herum beobachtete und still entschied: <em>Nicht du. Nicht du. Nicht die. Nicht jetzt.</em> Ich hatte die Messlatte in meinem Inneren so hoch gesetzt, dass keine sie jemals erreichen konnte. Ich machte das nicht aus Überheblichkeit. Ich machte das, weil meine erste Liebe keine Übung sein sollte. Sie sollte der Ernstfall sein. Die echte Sache. Die einzige Sache.</p>
+            <p>Und dann fragte sie mich, ob ich am 25.12. zu ihr nach Hause kommen möchte. Zum Weihnachtsessen. Mit ihrer ganzen Familie.</p>
+            <span class="italic-thought">Man öffnet nicht seine Familientür am heiligsten Abend des Jahres für jemanden, der einem egal ist. Diese Einladung war ein Geständnis – auch wenn sie das vielleicht damals noch nicht wusste.</span>
+            <p>Ich sagte ja. Mit einem Herz, das so laut schlug, dass ich Angst hatte, es könnte man hören.</p>
+            <p>Der Tag war ein rauschendes, wuseliges Meer aus Menschen und Wärme. Ihre Mutter. Der Stiefvater. Ihre Schwester, ihr Mann, ihr kleiner Sohn. Die Tochter des Stiefvaters mit ihrem Freund. Ich lernte an einem einzigen Weihnachtsfeiertag ihre komplette, lebendige Welt kennen. Ich war schüchtern – mutig nach außen, aber innen bebend –, als sie mich alle freundlich und neugierig "ausfragten". Was mir wichtig war. Was mich ausmachte. Wer ich war. Ich antwortete. Und mit jeder Antwort fiel ein Stück meiner gewohnten inneren Rüstung zu Boden. Am Nachmittag spazierten wir mit dem Baby. Wir aßen unfassbar gut und lachten und redeten und ich saß mittendrin in dieser fremden, warmen Familie und dachte: <em>Ich will nirgendwo sonst auf der Welt sein.</em></p>
+            <p>Dann wurde es Nacht. Das Haus legte sich still. Und ich blieb.</p>
+            <p>Wir legten uns nebeneinander. Ich war durchströmt von einer Nervosität, die ich in meinem Leben noch nie gespürt hatte – nicht weil ich Angst hatte, sondern weil ich in diesem Moment wusste, wie viel auf dem Spiel stand. Wie echt das hier war. Wie endgültig. Wir flüsterten. Wir ließen nebenbei irgendetwas laufen, das keine von uns beiden interessierte. Die Stille zwischen unseren Worten war so schwer wie Blei und gleichzeitig so weich wie Seide. Und dann – langsam, zögerlich, aber mit einer unbeschreiblichen Sicherheit – bewegte sie sich in meine Richtung.</p>
+            <p>Unser erster Kuss. Er war leise. Er war sanft. Er war alles.</p>
+            <p>In diesem Moment, in dieser einzigen stillen Sekunde, gab ich ihr etwas, das ich in meinem ganzen Leben noch keinem einzigen Menschen gegeben hatte: mein ungeschütztes, nacktes Herz. Ich hatte auf sie gewartet, ohne es zu wissen. Ich hatte alle anderen vorbeiziehen lassen, damit sie kommen konnte. Ich hatte mich geweigert, Kompromisse zu machen, damit dieser Moment echt sein würde, wenn er endlich kommt. Und er kam. Er kam in Form von ihr.</p>
+            <p>Sie war meine erste Liebe. Und ich habe es nie bereut, für sie all die anderen Male Nein gesagt zu haben.</p>
+            <p>Sie ist der Grund, warum das Warten sich gelohnt hat.</p>
+        </div>
+
+        <div class="asterisk-divider">***</div>
+
+        <!-- Liebesbrief -->
+        <div class="chapter" id="brief" style="margin-top: 20px;">
+            <h2 class="chapter-title" style="font-size: 1.8rem; color: var(--accent-color);">Ein Brief – nur für dich</h2>
+
+            <div style="font-family: 'Lora', serif; font-size: 1.05rem; line-height: 2; color: #3a3330;">
+                <p>Meine kleine, süße, Herz.</p>
+
+                <p>Ich weiß nicht, wie ich dir erklären soll, was du mit mir machst. Ich bin kein Mensch, der große Worte macht. Ich bin derjenige, der schweigt und beobachtet, der die Dinge in sich trägt und sie selten zeigt. Und genau deswegen weißt du vielleicht manchmal nicht, wie viel du mir bedeutest. Das möchte ich heute ändern.</p>
+
+                <p>Du hast ein Lächeln, das mir den Gedanken stiehlt, egal womit mein Kopf gerade beschäftigt ist. Ich kann nichts dagegen tun. Wenn du lächelst, vergesse ich alles andere. Und deine Augen – ich könnte dir stundenlang in die Augen sehen und nie auch nur einen Bruchteil von dem entdecken, was ich darin suche, weil es einfach zu viel ist, zu tief, zu schön. Und deine Haare, dein Verhalten, die Art, wie du redest, wie du lachst, wie du dich verhältst, wenn niemand schaut – das alles zusammen ist etwas, das ich in keinem anderen Menschen je so gefunden habe. Und ich habe lange geschaut.</p>
+
+                <p style="font-style: italic; color: #888; font-size: 0.95rem; text-align: center; margin: 5px 0 30px;">(Wenn ich ganz ehrlich bin: Mein erster innerer Gedanke beim Anblick von dir war ungefähr: <em>"Alterrrrr!!! Dickker!!!"</em> – aber das bleibt unter uns.)</p>
+
+                <p>Manchmal, wenn du bei mir bist, beschleicht mich ein leises, brennendes Gefühl, das mir den Atem nimmt: die Angst, dir zu wenig zu bieten. Die Angst, dass das, was ich gebe, niemals groß genug sein wird für das, was du verdienst. Du bist so viel. Du bist so besonders. Und ich bin nur ich – ein stiller Junge, der früh zu viel verstand und lang auf jemanden gewartet hat, dem er vertrauen kann. Dieser jemand bist du. Nur du.</p>
+
+                <p>Ich habe keine Erfahrung damit, jemanden so zu lieben. Ich habe das nie geübt, nie mit anderen ausprobiert, nie gemacht. Ich habe darauf bestanden, es das erste und einzige Mal richtig zu machen. Mit dir ist es richtig. Noch nie in meinem Leben habe ich jemanden so nah an mich herangelassen. Noch nie habe ich jemandem erlaubt, mein echtes Inneres zu sehen. Bei dir konnte ich nicht anders. Du hast etwas in mir aufgebrochen, das jahrelang verschlossen war, ganz sanft, ganz ohne Gewalt, einfach durch deine bloße Existenz.</p>
+
+                <p>Und weißt du, was mich dabei am meisten trifft? Dass ich bei dir nicht mehr der Stille sein muss, der ich immer war. Bei den meisten Menschen ziehe ich mich in mein Inneres zurück und bleibe dort. Ich habe gelernt, die Welt auf Abstand zu halten. Aber bei dir – bei dir bin ich endlich einfach ich. Ungefiltert, ungeschützt, lebendig. Das sind Menschen, die ich an einer Hand abzählen kann. Du bist einer davon. Du bist der wichtigste davon. Und dafür allein wäre ich schon für immer dankbar.</p>
+
+                <p>Ich weiß nicht, was das Leben noch vor uns hat. Aber ich weiß, dass ich dich nicht loslassen will. Ich weiß, dass du das erste Mädchen bist, das ich wirklich meine, wenn ich sage: <em>Ich bin für dich da.</em> Uneingeschränkt. Mit allem, was ich habe und bin.</p>
+
+                <p>Danke, dass du dich damals an diesem Brunnen neben mich gesetzt hast und einfach geredet hast. Danke, dass du die Schokolade abgelehnt hast und mich trotzdem nicht weggeschickt hast. Danke, dass du mich am Heiligabend an deinen Tisch gelassen hast. Und danke, dass du in dieser stillen Winternacht den letzten Schritt auf mich zugemacht hast – denn ich glaube, aus Nervosität wäre ich das niemals geworden.</p>
+
+                <p style="margin-top: 40px;">In Liebe,</p>
+                <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--accent-color); margin-top: -15px;">dein Elias.</p>
+            </div>
+        </div>
+
+        <div class="final-note">
+            <p class="end-band">Ende Band 1</p>
+            <p class="band-2">Band 2 folgt ...</p>
+        </div>
+
+
+    </div>
+</body>
+</html>
